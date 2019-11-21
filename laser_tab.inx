@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	<!-- _name must have same name as .py file but capitalise it. Shows on Menu this way-->
+	<_name>Laser tab 0.0</_name>
+	<!-- id should be unique. Associates entered values with this menu -->
+	<id>githubacct.uniqueid.laser_tab</id>
+	<!-- mention a dependency here and will check for existence (optional)-->
+	<dependency type="executable" location="extensions">mk_jig.py</dependency>
+	<dependency type="executable" location="extensions">simplestyle.py</dependency>
+
+	<!-- start notebook -->
+	<param name='active-tab' type="notebook">
+		<!-- one per page(tab) - unique names. Can discover which page in program-->
+		<page name="title" _gui-text="Settings">
+			<param name="num_pegs" type="int"   min="1"    max="5"    _gui-text="no. pegs">2</param>
+			<param name="nx" type="int"   min="2"    max="10"    _gui-text="nx">3</param>
+			<param name="ny" type="int"   min="1"    max="10"    _gui-text="ny">2</param>
+			<_param name="Cut dimensions"   type="description" xml:space="preserve">------------------------------</_param>
+			<param name="diff" type="float"   min=".1"    max="6"    _gui-text="cut width">3.</param>
+			<param name="spacing" type="int"   min="8"    max="50"    _gui-text="spacing">8</param>
+			<param name="stack" type="float"   min="2"    max="10"    _gui-text="stack">4</param>
+			
+			<_param name="Tab dimensions"   type="description" xml:space="preserve">------------------------------</_param>
+			<param name="width" type="int"   min="20"    max="200"   _gui-text="width">100</param>
+			<param name="depth" type="int"   min="5"    max="100"   _gui-text="depth">20</param>
+
+		</page>
+	</param>
+	<!-- classify which menu it appears under - can be new name -->
+	<effect>
+	<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Examples"/> 
+		</effects-menu>
+	</effect>
+	<!-- py file again -->
+	<script>
+		<command reldir="extensions" interpreter="python">mk_jig.py</command>
+	</script>
+	
+</inkscape-extension>
